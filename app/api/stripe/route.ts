@@ -2,7 +2,6 @@ import { NextResponse } from "next/server";
 import prismadb from "@/lib/prismadb";
 import { stripe } from "@/lib/stripe";
 import { absolteUrl } from "@/lib/utils";
-import { url } from "inspector";
 import { auth, currentUser } from "@clerk/nextjs/server";
 
 const settingsUrl = absolteUrl("/settings");
@@ -17,7 +16,7 @@ export async function GET() {
     }
 
     const userSubscription = await prismadb.userSubsciption.findUnique({
-      where: { userId: userId },
+      where: { userId },
     });
 
     if (userSubscription && userSubscription.stripeCustomerId) {
