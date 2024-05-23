@@ -17,7 +17,7 @@ export async function POST(req: Request) {
       process.env.STRIPE_WEBHOOK_SECRET!
     );
   } catch (error: any) {
-    return new NextResponse(`Webhok Error: ${error.message}`, { status: 400 });
+    return new NextResponse(`Webhook Error: ${error.message}`, { status: 400 });
   }
 
   const session = event.data.object as Stripe.Checkout.Session;
@@ -30,6 +30,7 @@ export async function POST(req: Request) {
     if (!session?.metadata?.userId) {
       return new NextResponse("User id is required", { status: 400 });
     }
+
     await prismadb.userSubsciption.create({
       data: {
         userId: session?.metadata?.userId,
