@@ -9,7 +9,7 @@ export const LandingHero = () => {
   const { isSignedIn } = useAuth();
 
   return (
-    <div className="text-[#fefae0] font-bold py-36 text-center space-y-5">
+    <div className="text-[#fefae0] font-bold py-30 text-center space-y-5">
       <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl space-y-5 font-extrabold">
         <h1>Welcome to Athena</h1>
         <div className="text-transparent bg-clip-text bg-gradient-to-r from-[#fefae0] via-[#606c38] to-[#283618]">
